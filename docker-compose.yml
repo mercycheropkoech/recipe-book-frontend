@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: recipe-book-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_TARGET: http://host.docker.internal:8000
+      CHOKIDAR_USEPOLLING: "true"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -23,7 +23,7 @@ export default function Navbar() {
           margin: 0,
         }}
       >
-        🍽 RecipeBook
+        RecipeBook
       </h2>
 
       <div
