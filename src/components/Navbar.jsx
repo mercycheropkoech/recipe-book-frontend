@@ -1,39 +1,70 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <nav
       style={{
-        background: "#5D4037",
-        color: "white",
-        padding: "20px",
+        background: "#4E342E",
+        padding: "18px 8%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
+        boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
       }}
     >
-      <Link to="/" style={{ color: "white", marginRight: "20px" }}>
-        Home
-      </Link>
+      <h2
+        style={{
+          color: "#FFF8F2",
+          fontSize: "30px",
+          fontWeight: "bold",
+          margin: 0,
+        }}
+      >
+        🍽 RecipeBook
+      </h2>
 
-      <Link to="/recipes" style={{ color: "white", marginRight: "20px" }}>
-        Recipes
-      </Link>
+      <div
+        style={{
+          display: "flex",
+          gap: "30px",
+          alignItems: "center",
+        }}
+      >
+        <NavLink to="/" style={linkStyle}>
+          Home
+        </NavLink>
 
-      <Link to="/upload" style={{ color: "white", marginRight: "20px" }}>
-        Upload
-      </Link>
+        <NavLink to="/recipes" style={linkStyle}>
+          Recipes
+        </NavLink>
 
-      <Link to="/favorites" style={{ color: "white", marginRight: "20px" }}>
-        Favorites
-      </Link>
+        <NavLink to="/upload" style={linkStyle}>
+          Upload
+        </NavLink>
 
-      <Link to="/login" style={{ color: "white", marginRight: "20px" }}>
-        Login
-      </Link>
+        <NavLink to="/favorites" style={linkStyle}>
+          Favorites
+        </NavLink>
 
-      <Link to="/register" style={{ color: "white" }}>
-        Register
-      </Link>
+        <NavLink to="/login" style={linkStyle}>
+          Login
+        </NavLink>
+
+        <NavLink to="/register" style={linkStyle}>
+          Register
+        </NavLink>
+      </div>
     </nav>
   );
 }
 
-export default Navbar;
+const linkStyle = ({ isActive }) => ({
+  color: isActive ? "#FFD180" : "#FFF8F2",
+  textDecoration: "none",
+  fontWeight: "600",
+  fontSize: "17px",
+  transition: "0.3s",
+});
